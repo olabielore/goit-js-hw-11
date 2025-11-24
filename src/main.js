@@ -28,13 +28,15 @@ const onSubmit = event => {
 
   getImagesByQuery(value)
     .then(images => {
-      if (images.length === 0)
+      if (images.length === 0) {
         iziToast.warning({
           title:
             'Sorry, there are no images matching your search query. Please try again!',
           position: 'topRight',
         });
-
+        hideLoader();
+        return;
+      }
       input.value = '';
 
       createGallery(images);
