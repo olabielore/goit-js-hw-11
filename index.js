@@ -25,5 +25,5 @@ import{a as u,S as d,i as a}from"./assets/vendor-MgecxatS.js";(function(){const 
     </li>
     </ul>
 </li>
-`)).join("");p.insertAdjacentHTML("beforeend",s),y.refresh()}function b(){p.innerHTML=""}const w=document.querySelector(".form"),S=o=>{o.preventDefault();const s=o.target.elements["search-text"],t=s.value.trim();if(t===""){a.error({title:"Please enter search text.",position:"topRight"});return}b(),g(),m(t).then(i=>{i.length===0&&a.warning({title:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"}),s.value="",L(i),n()}).catch(i=>{a.error({title:"Server error try later",position:"topRight"}),n()})};w.addEventListener("submit",S);
+`)).join("");p.insertAdjacentHTML("beforeend",s),y.refresh()}function b(){p.innerHTML=""}const w=document.querySelector(".form"),S=o=>{o.preventDefault();const s=o.target.elements["search-text"],t=s.value.trim();if(t===""){a.error({title:"Please enter search text.",position:"topRight"});return}b(),g(),m(t).then(i=>{if(i.length===0){a.warning({title:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"}),n();return}s.value="",L(i),n()}).catch(i=>{a.error({title:"Server error try later",position:"topRight"}),n()})};w.addEventListener("submit",S);
 //# sourceMappingURL=index.js.map
