@@ -14,6 +14,15 @@ const onSubmit = event => {
   event.preventDefault();
   const input = event.target.elements['search-text'];
   const value = input.value.trim();
+
+  if (value === '') {
+    iziToast.error({
+      title: 'Please enter search text.',
+      position: 'topRight',
+    });
+    return;
+  }
+
   clearGallery();
   showLoader();
 
